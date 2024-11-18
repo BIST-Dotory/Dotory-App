@@ -1,4 +1,6 @@
 import 'package:dotory_app/data/viewmodel/login_viewmodel.dart';
+import 'package:dotory_app/ui/global/color_data.dart';
+import 'package:dotory_app/ui/global/device_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -50,21 +52,100 @@ class LoginView extends ConsumerWidget {
 
     return Scaffold(
       body: SafeArea(
-          child: Column(
-            children:[
-              CupertinoTextField(
-                placeholder: '학번',
-                onChanged: onIdChanged,
-              ),
-              CupertinoTextField(
-                obscureText: true, //password 입력 효과
-                placeholder: '비밀번호',
-                onChanged: onPwChanged,
-              ),
-              CupertinoButton(child: const Text('로그인'), onPressed: () => {
-                print('학번 : ${textFieldState.id} / 비밀번호 : ${textFieldState.password}')
-              })
-            ],
+          child: Padding(
+              padding: const EdgeInsets.only(left: 28, right: 28, top: 0, bottom: 28),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  SizedBox(
+                    width: 120,
+                    height: 120,
+                    child: Image.asset('assets/images/dotory_logo.png'),
+                  ),
+                  const SizedBox(
+                    height: 52,
+                  ),
+                  TextField(
+                    decoration: const InputDecoration(
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey)
+                        ),
+                      hintText: '학번',
+                      hintStyle: TextStyle(
+                        color: Colors.grey
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: ColorData.FOCUS_COLOR)
+                      )
+                    ),
+                    onChanged: onIdChanged,
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  TextField(
+                    obscureText: true, //password 입력 효과
+                    decoration: const InputDecoration(
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey)
+                        ),
+                        hintText: '비밀번호',
+                        hintStyle: TextStyle(
+                            color: Colors.grey
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: ColorData.FOCUS_COLOR)
+                        )
+                    ),
+                    onChanged: onPwChanged,
+                  ),
+                  const SizedBox(
+                    height: 32,
+                  ),
+                  SizedBox(
+                      width: DeviceSize.getWidth(context),
+                      height: 50,
+                      child: CupertinoButton(
+                        padding: const EdgeInsets.all(0),
+                        color: ColorData.FOCUS_COLOR,
+                        child: const Text('로그인'),
+                        onPressed: () => {
+                          print('학번 : ${textFieldState.id} / 비밀번호 : ${textFieldState.password}')
+                    })
+                  ),
+                  const SizedBox(
+                    height: 24  ,
+                  ),
+                  SizedBox(
+                    width: DeviceSize.getWidth(context),
+                    height: 50,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        CupertinoButton(
+                            padding: const EdgeInsets.all(0),
+                            child: const Text(
+                                '회원가입',
+                              style: TextStyle(
+                                color: ColorData.FOCUS_COLOR
+                              ),
+                            ),
+                          onPressed: () => {},
+                        ),
+                        CupertinoButton(
+                            padding: const EdgeInsets.all(0),
+                            child: const Text(
+                              '학번/비밀번호 찾기',
+                              style: TextStyle(
+                                  color: ColorData.FOCUS_COLOR
+                              ),
+                            ),
+                            onPressed: () => {})
+                      ],
+                    ),
+                  )
+                ],
+              )
           ),
       )
     );

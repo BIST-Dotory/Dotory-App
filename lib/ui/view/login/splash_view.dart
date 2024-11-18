@@ -17,7 +17,7 @@ class SplashView extends StatelessWidget {
 
     return Scaffold(
         body: Center(
-          child: Image.asset('assets/images/dotory_logo.png', width: 234, height: 94)),
+          child: Image.asset('assets/images/dotory_intro_logo.png', width: 234, height: 94)),
         );
   }
 

@@ -16,7 +16,13 @@ class DotoryApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dotory',
       theme: ThemeData(
-        scaffoldBackgroundColor: ColorData.COLOR_WHITE
+        scaffoldBackgroundColor: ColorData.COLOR_WHITE,
+        primaryColor: ColorData.MAIN_COLOR,
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: ColorData.FOCUS_COLOR,
+          selectionHandleColor: ColorData.FOCUS_COLOR,
+          selectionColor: ColorData.FOCUS_COLOR
+        )
       ),
       home: const SplashView(),
     );

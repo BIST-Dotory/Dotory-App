@@ -16,12 +16,15 @@ class DotoryApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dotory',
       theme: ThemeData(
-        scaffoldBackgroundColor: ColorData.COLOR_WHITE,
-        primaryColor: ColorData.MAIN_COLOR,
-        textSelectionTheme: const TextSelectionThemeData(
-          cursorColor: ColorData.FOCUS_COLOR,
-          selectionHandleColor: ColorData.FOCUS_COLOR,
-          selectionColor: ColorData.FOCUS_COLOR
+        // Ripple 효과 비활성화
+          splashFactory: NoSplash.splashFactory,
+          highlightColor: Colors.transparent,
+          scaffoldBackgroundColor: ColorData.COLOR_WHITE, //scaffold background color
+          primaryColor: ColorData.MAIN_COLOR,
+          textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: ColorData.FOCUS_COLOR, //textfield cursor color
+          selectionHandleColor: ColorData.FOCUS_COLOR, // textfield handle color
+          selectionColor: ColorData.FOCUS_COLOR // textfield selection color
         )
       ),
       home: const SplashView(),

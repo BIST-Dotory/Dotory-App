@@ -1,6 +1,7 @@
 import 'package:dotory_app/data/viewmodel/login_viewmodel.dart';
 import 'package:dotory_app/ui/global/color_data.dart';
 import 'package:dotory_app/ui/global/device_size.dart';
+import 'package:dotory_app/ui/view/main/main_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -58,12 +59,12 @@ class LoginView extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children:[
                   SizedBox(
-                    width: 120,
-                    height: 120,
-                    child: Image.asset('assets/images/dotory_logo.png'),
+                    width: 200,
+                    height: 200,
+                    child: Image.asset('assets/images/dotory_text_logo.png'),
                   ),
                   const SizedBox(
-                    height: 52,
+                    height: 20,
                   ),
                   TextField(
                     decoration: const InputDecoration(
@@ -100,7 +101,7 @@ class LoginView extends ConsumerWidget {
                     onChanged: onPwChanged,
                   ),
                   const SizedBox(
-                    height: 32,
+                    height: 42,
                   ),
                   SizedBox(
                       width: DeviceSize.getWidth(context),
@@ -109,12 +110,14 @@ class LoginView extends ConsumerWidget {
                         padding: const EdgeInsets.all(0),
                         color: ColorData.FOCUS_COLOR,
                         child: const Text('로그인'),
-                        onPressed: () => {
-                          print('학번 : ${textFieldState.id} / 비밀번호 : ${textFieldState.password}')
-                    })
+                        onPressed: () {
+                          _checkLogin(context);
+                          print('학번 : ${textFieldState.id} / 비밀번호 : ${textFieldState.password}');
+                      }
+                    )
                   ),
                   const SizedBox(
-                    height: 24  ,
+                    height: 12,
                   ),
                   SizedBox(
                     width: DeviceSize.getWidth(context),
@@ -149,5 +152,12 @@ class LoginView extends ConsumerWidget {
           ),
       )
     );
+  }
+
+  /// 유져 검증
+  void _checkLogin(BuildContext context) {
+    Navigator.pop(context); //Splash 화면 제거
+    Navigator.push(
+        context, CupertinoPageRoute(builder: (context) => MainView()));
   }
 }

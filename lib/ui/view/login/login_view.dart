@@ -1,6 +1,8 @@
 import 'package:dotory_app/data/viewmodel/login_viewmodel.dart';
 import 'package:dotory_app/ui/global/color_data.dart';
+import 'package:dotory_app/ui/global/custom_appbar.dart';
 import 'package:dotory_app/ui/global/device_size.dart';
+import 'package:dotory_app/ui/view/login/register_view.dart';
 import 'package:dotory_app/ui/view/main/main_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -133,7 +135,9 @@ class LoginView extends ConsumerWidget {
                                 color: ColorData.FOCUS_COLOR
                               ),
                             ),
-                          onPressed: () => {},
+                          onPressed: (){
+                              _moveRegisScreen(context);
+                          },
                         ),
                         CupertinoButton(
                             padding: const EdgeInsets.all(0),
@@ -154,9 +158,14 @@ class LoginView extends ConsumerWidget {
     );
   }
 
-  /// 유져 검증
+  void _moveRegisScreen(BuildContext context) {
+    Navigator.push(
+        context, CupertinoPageRoute(builder: (context) => const RegisterView()));
+    }
+
+  /// 유저 검증
   void _checkLogin(BuildContext context) {
-    Navigator.pop(context); //Splash 화면 제거
+    Navigator.pop(context);
     Navigator.push(
         context, CupertinoPageRoute(builder: (context) => MainView()));
   }

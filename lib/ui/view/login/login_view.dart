@@ -160,7 +160,7 @@ class LoginView extends ConsumerWidget {
 
   void _moveRegisScreen(BuildContext context) {
     Navigator.push(
-        context, CupertinoPageRoute(builder: (context) => const RegisterView()));
+        context, CupertinoPageRoute(builder: (context) => RegisterView()));
     }
 
   /// 유저 검증

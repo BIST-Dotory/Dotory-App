@@ -1,3 +1,4 @@
+import 'package:dotory_app/ui/view/global/select_major_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -58,14 +59,18 @@ class TextFieldNotifier extends StateNotifier<TextFieldState> {
     state = state.copyWith(phone: text);
   }
 }
-final textFieldProvider = StateNotifierProvider<TextFieldNotifier, TextFieldState>((ref) => TextFieldNotifier());
 
 class RegisterView extends ConsumerWidget {
-  const RegisterView({super.key});
+  final textFieldProvider = StateNotifierProvider<TextFieldNotifier, TextFieldState>((ref) => TextFieldNotifier());
+  final selectedMajorProvider = StateProvider<String?>((ref) => null);
+  RegisterView({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final textFieldState = ref.watch(textFieldProvider);
+    final selectedMajorItem = ref.watch(selectedMajorProvider);
+    var majorTextController = TextEditingController(text: selectedMajorItem ?? '');
+
     void onIdChanged(String text) {
       ref.read(textFieldProvider.notifier).updateIdText(text);
     }
@@ -195,7 +200,8 @@ class RegisterView extends ConsumerWidget {
                         children: [
                           Flexible(
                             flex: 3,
-                            child: TextFormField(
+                            child: TextField(
+                              controller: majorTextController,
                               readOnly: true, // 읽기 전용
                               decoration: const InputDecoration(
                                   enabledBorder: UnderlineInputBorder(
@@ -223,7 +229,11 @@ class RegisterView extends ConsumerWidget {
                                       color: ColorData.FOCUS_COLOR,
                                       padding: const EdgeInsets.all(0),
                                       child: const Text('검색'),
-                                      onPressed: (){})
+                                      onPressed: (){
+                                        Navigator.push(
+                                            context, CupertinoPageRoute(builder: (context) =>
+                                              SelectMajorView(selectedMajorProvider: selectedMajorProvider)));
+                                      })
                               )
                           )
                         ],
@@ -288,5 +298,7 @@ class RegisterView extends ConsumerWidget {
       ),
     );
   }
+
+
 
 }

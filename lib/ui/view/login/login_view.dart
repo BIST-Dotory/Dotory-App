@@ -3,11 +3,12 @@ import 'package:dotory_app/ui/global/color_data.dart';
 import 'package:dotory_app/ui/global/custom_appbar.dart';
 import 'package:dotory_app/ui/global/device_size.dart';
 import 'package:dotory_app/ui/view/login/register_view.dart';
-import 'package:dotory_app/ui/view/main/main_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../main/main_view.dart';
 
 class TextFieldState {
   final String id;

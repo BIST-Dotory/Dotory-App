@@ -164,7 +164,7 @@ class HomeView extends ConsumerWidget {
           ),
           const SizedBox(height: 16),
           Container(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(14),
             height: 120,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
@@ -196,13 +196,14 @@ class HomeView extends ConsumerWidget {
                     )
                   ],
                 ),
+                const SizedBox(height: 10),
                 Text('2024-08-08 12:00:01', textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY))
               ],
             ),
           ),
           const SizedBox(height: 16),
           Container(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(14),
             height: 120,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
@@ -234,13 +235,14 @@ class HomeView extends ConsumerWidget {
                     )
                   ],
                 ),
+                const SizedBox(height: 10),
                 Text('2024-08-08 12:00:01', textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY))
               ],
             )
           ),
           const SizedBox(height: 16),
           Container(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(14),
             height: 120,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
@@ -272,6 +274,7 @@ class HomeView extends ConsumerWidget {
                     )
                   ],
                 ),
+                const SizedBox(height: 10),
                 Text('2024-08-08 12:00:01', textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY))
               ],
             ),

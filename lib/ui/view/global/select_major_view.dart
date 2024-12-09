@@ -9,8 +9,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class SelectMajorView extends ConsumerWidget {
   final selectedMainMajorItem = StateProvider<String?>((ref) => null);
   final StateProvider<String?> selectedMajorProvider;
-  final List<String> majorList = ['A', 'B'];
-  final Map<String, String> subList = {'A': '간호학과', 'B': '테스트과'};
+  final List<String> majorList = ['자연과학계열', '공학계열'];
+  final Map<String, String> subList = {'자연과학계열': '간호학과', '공학계열': 'AI컴퓨터과'};
   final List<String> subMajorList = [];
   SelectMajorView({super.key, required this.selectedMajorProvider});
 

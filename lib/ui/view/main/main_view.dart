@@ -1,4 +1,5 @@
-import 'package:dotory_app/ui/view/main/home/home_view.dart';
+import 'package:dotory_app/ui/view/main/community_view.dart';
+import 'package:dotory_app/ui/view/main/home_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class _MainView extends State<MainView> {
 
   final screens = [
     HomeView(),
-    HomeView(),
+    CommunityView(),
     HomeView()
   ];
   var currentIndex = 0;

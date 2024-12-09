@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../global/color_data.dart';
+import 'outing_view.dart';
 
 class MainView extends StatefulWidget {
   @override
@@ -22,7 +23,7 @@ class _MainView extends State<MainView> {
   final screens = [
     HomeView(),
     CommunityView(),
-    HomeView()
+    OutingView()
   ];
   var currentIndex = 0;
 

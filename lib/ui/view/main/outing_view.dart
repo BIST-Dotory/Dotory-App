@@ -6,13 +6,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../global/color_data.dart';
 
-class CommunityView extends ConsumerStatefulWidget {
+class OutingView extends ConsumerStatefulWidget {
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _CommunityView();
 
 }
 
-class _CommunityView extends ConsumerState<CommunityView> {
+class _CommunityView extends ConsumerState<OutingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,15 +25,15 @@ class _CommunityView extends ConsumerState<CommunityView> {
                   const SizedBox(height: 20),
                   SizedBox(width: 40, height: 40, child:Image.asset('assets/images/dotory_logo.png')),
                   const SizedBox(height: 24),
-                  const Text('커뮤니티', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+                  const Text('외박/외출', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
                   const SizedBox(height: 32),
                   _searchSection(),
                   const SizedBox(height: 16),
                   _tabMenuSection(),
                   const SizedBox(height: 36),
                   _contentSection()
-              ],
-            )
+                ],
+              )
           )
       ),
       floatingActionButton: FloatingActionButton(
@@ -49,18 +49,18 @@ class _CommunityView extends ConsumerState<CommunityView> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Flexible(flex: 4, child: TextField(
-          decoration: const InputDecoration(
-              enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey)
-              ),
-              hintText: '검색어를 입력해주세요',
-              hintStyle: TextStyle(
-                  color: Colors.grey
-              ),
-              focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: ColorData.FOCUS_COLOR)
-              )
-          )
+            decoration: const InputDecoration(
+                enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey)
+                ),
+                hintText: '검색어를 입력해주세요',
+                hintStyle: TextStyle(
+                    color: Colors.grey
+                ),
+                focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: ColorData.FOCUS_COLOR)
+                )
+            )
         )),
         Flexible(flex: 1, child: CupertinoButton(
             padding: EdgeInsets.all(0),
@@ -73,7 +73,7 @@ class _CommunityView extends ConsumerState<CommunityView> {
 
   Widget _tabMenuSection() {
     return DefaultTabController(
-        length: 5,
+        length: 3,
         initialIndex: 0,
         child: ButtonsTabBar(
           backgroundColor: ColorData.LIGHT_GREY,
@@ -88,10 +88,8 @@ class _CommunityView extends ConsumerState<CommunityView> {
           ),
           tabs: const [
             Tab(text: "전체"),
-            Tab(text: "공지"),
-            Tab(text: "건의사항"),
-            Tab(text: "더치페이"),
-            Tab(text: "자유게시판"),
+            Tab(text: "외박"),
+            Tab(text: "외출"),
           ],
         )
     );
@@ -112,13 +110,15 @@ class _CommunityView extends ConsumerState<CommunityView> {
                     children: [
                       Row(
                         children: [
-                          Text('더치페이 ', style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text('제목'),
+                          Text('외박 ', style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text('서면'),
                         ],
                       ),
-                      Text('텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트',
+                      Text('친구랑 술 한잔 하러 가겠습니다.',
+                          textAlign: TextAlign.start,
                           maxLines: 2,
-                          style: TextStyle(overflow: TextOverflow.ellipsis, color: ColorData.DARK_GREY)),
+                          style: TextStyle(overflow: TextOverflow.ellipsis,
+                              color: ColorData.DARK_GREY)),
                     ],
                   ))),
                   Container(width: 58, height: 58,
@@ -129,14 +129,8 @@ class _CommunityView extends ConsumerState<CommunityView> {
                 ],
               ),
               const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text('모집인원 : 3 / 5명', textAlign: TextAlign.start, style: TextStyle(color: ColorData.DARK_GREY)),
-                  Text('2024-08-08 12:00:01', textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY)),
-                ],
-              ),
+              Text('2024-08-08 12:00:01 ~ 2024-08-08 12:00:01',
+                  textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY)),
               const SizedBox(height: 20),
               Container(
                 height: 1,

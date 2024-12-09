@@ -14,8 +14,8 @@ class _MainView extends State<MainView> {
 
   final List<BottomNavigationBarItem> items = [
     const BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: "홈"),
-    const BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: "홈"),
-    const BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: "홈"),
+    const BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: "커뮤니티"),
+    const BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: "외박/외출"),
   ];
 
   final screens = [

@@ -20,7 +20,8 @@ class TextFieldState {
     this.password = '', this.passwordCheck = '', this.major = '',
     this.roomNum = '', this.phone = ''});
 
-  TextFieldState copyWith({String? id, String? password, String? passwordCheck, String? major, String? roomNum, String? phone}) {
+  TextFieldState copyWith({String? id, String? password, String? passwordCheck,
+    String? major, String? roomNum, String? phone}) {
     return TextFieldState(
         id: id ?? this.id,
         password: password ?? this.password,
@@ -298,7 +299,4 @@ class RegisterView extends ConsumerWidget {
       ),
     );
   }
-
-
-
 }

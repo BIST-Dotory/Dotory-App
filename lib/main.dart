@@ -16,7 +16,7 @@ class DotoryApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dotory',
       theme: ThemeData(
-        // Ripple 효과 비활성화
+          // Ripple 효과 비활성화
           splashFactory: NoSplash.splashFactory,
           highlightColor: Colors.transparent,
           scaffoldBackgroundColor: ColorData.COLOR_WHITE, //scaffold background color

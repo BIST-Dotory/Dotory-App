@@ -1,4 +1,5 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:dotory_app/ui/view/main/community_write_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -40,7 +41,10 @@ class _CommunityView extends ConsumerState<CommunityView> {
           backgroundColor: ColorData.FOCUS_COLOR,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
           child: const Icon(Icons.add, color: Colors.white),
-          onPressed: (){}),
+          onPressed: (){
+            Navigator.push(
+                context, CupertinoPageRoute(builder: (context) => CommunityWriteView()));
+          }),
     );
   }
 

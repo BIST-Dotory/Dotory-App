@@ -1,4 +1,5 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:dotory_app/ui/view/main/community_detail_view.dart';
 import 'package:dotory_app/ui/view/main/community_write_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -105,7 +106,8 @@ class _CommunityView extends ConsumerState<CommunityView> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Column(
+          //더치페이
+          GestureDetector(child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -141,12 +143,67 @@ class _CommunityView extends ConsumerState<CommunityView> {
                   Text('2024-08-08 12:00:01', textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY)),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 16),
+              Container(
+                height: 1,
+                color: ColorData.DARK_GREY,
+              ),
+              const SizedBox(height: 16),
+            ],
+          ),
+              onTap: () {
+                Navigator.push(
+                    context, CupertinoPageRoute(builder: (context) => CommunityDetailView(true)));
+              },
+          ),
+          //일반
+          GestureDetector(child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                children: [
+                  Flexible(child: Padding(padding: EdgeInsets.only(right: 20) ,child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Text('자유게시판 ', style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text('제목'),
+                        ],
+                      ),
+                      Text('텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트',
+                          maxLines: 2,
+                          style: TextStyle(overflow: TextOverflow.ellipsis, color: ColorData.DARK_GREY)),
+                    ],
+                  ))),
+                  Container(width: 58, height: 58,
+                    decoration: BoxDecoration(
+                        color: ColorData.LIGHT_GREY
+                    ),
+                  )
+                ],
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(''),
+                  Text('2024-08-08 12:00:01', textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY)),
+                ],
+              ),
+              const SizedBox(height: 16),
               Container(
                 height: 1,
                 color: ColorData.DARK_GREY,
               )
             ],
+          ),
+            onTap: () {
+              Navigator.push(
+                  context, CupertinoPageRoute(builder: (context) => CommunityDetailView(false)));
+            },
           )
         ],
       ),

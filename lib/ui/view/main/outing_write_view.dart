@@ -184,7 +184,7 @@ class _OutingWriteView extends ConsumerState<OutingWriteView> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    padding: EdgeInsets.only(left: 16),
+                    padding: const EdgeInsets.only(left: 16),
                   ),
                   CupertinoButton(
                     child: const Text('완료', style: TextStyle(color: ColorData.FOCUS_COLOR)),
@@ -192,7 +192,7 @@ class _OutingWriteView extends ConsumerState<OutingWriteView> {
                       Navigator.pop(context);
                       // 완료를 눌렀을 때 처리할 로직
                     },
-                    padding: EdgeInsets.only(right: 16),
+                    padding: const EdgeInsets.only(right: 16),
                   ),
                 ],
               ),

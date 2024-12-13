@@ -1,4 +1,5 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:dotory_app/ui/view/main/outing_write_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -8,11 +9,11 @@ import '../../global/color_data.dart';
 
 class OutingView extends ConsumerStatefulWidget {
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _CommunityView();
+  ConsumerState<ConsumerStatefulWidget> createState() => _OutingView();
 
 }
 
-class _CommunityView extends ConsumerState<OutingView> {
+class _OutingView extends ConsumerState<OutingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +41,10 @@ class _CommunityView extends ConsumerState<OutingView> {
           backgroundColor: ColorData.FOCUS_COLOR,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
           child: const Icon(Icons.add, color: Colors.white),
-          onPressed: (){}),
+          onPressed: (){
+            Navigator.push(
+                context, CupertinoPageRoute(builder: (context) => OutingWriteView()));
+          }),
     );
   }
 

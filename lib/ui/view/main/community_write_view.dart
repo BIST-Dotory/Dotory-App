@@ -209,6 +209,5 @@ class _CommunityWriteView extends ConsumerState<CommunityWriteView> {
         keyboardType: TextInputType.multiline,
       );
     }
-    return Scaffold();
   }
 }

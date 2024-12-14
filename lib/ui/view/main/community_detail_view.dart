@@ -53,8 +53,7 @@ class _CommunityDetailView extends ConsumerState<CommunityDetailView> {
                 const SizedBox(height: 24),
                 Text('제목제목제목', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
                 const SizedBox(height: 16),
-                Text('35,000원 / 인당 7,000원', style: TextStyle(color: ColorData.GREY, fontSize: 16)),
-                const SizedBox(height: 28),
+                ..._setPriceContent(),
                 const Text('내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용'),
                 const SizedBox(height: 28),
                 Container(height: 1, color: ColorData.DARK_GREY),
@@ -77,5 +76,13 @@ class _CommunityDetailView extends ConsumerState<CommunityDetailView> {
         )],
       ))),
     );
+  }
+
+  List<Widget> _setPriceContent() {
+    if(widget.isPay) {
+      return [Text('35,000원 / 인당 7,000원', style: TextStyle(color: ColorData.GREY, fontSize: 16)),
+        const SizedBox(height: 28)];
+    }
+    return [SizedBox()];
   }
 }

@@ -116,10 +116,10 @@ class _OutingView extends ConsumerState<OutingView> {
                       Row(
                         children: [
                           Text('외박 ', style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text('서면'),
+                          Text('양산'),
                         ],
                       ),
-                      Text('친구랑 술 한잔 하러 가겠습니다.',
+                      Text('본가에 다녀오겠습니다.',
                           textAlign: TextAlign.start,
                           maxLines: 2,
                           style: TextStyle(overflow: TextOverflow.ellipsis,
@@ -129,7 +129,7 @@ class _OutingView extends ConsumerState<OutingView> {
                 ],
               ),
               const SizedBox(height: 10),
-              const Text('2024-08-08 12:00:01 ~ 2024-08-08 12:00:01',
+              const Text('2024-12-10 12:00:00 ~ 2024-12-11 12:00:00',
                   textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY)),
               const SizedBox(height: 20),
               Container(
@@ -140,7 +140,7 @@ class _OutingView extends ConsumerState<OutingView> {
             ],
           ),
             onTap: () {
-              Navigator.push(context, CupertinoPageRoute(builder: (context) => OutingDetailView(true)));
+              Navigator.push(context, CupertinoPageRoute(builder: (context) => OutingDetailView(true, '2024-12-10 12:00:00', '2024-12-11 12:00:00', '본가에 다녀오겠습니다.', '경상남도 양산시 중부동 123-1')));
             },
           ),
           GestureDetector(child: Column(
@@ -155,7 +155,7 @@ class _OutingView extends ConsumerState<OutingView> {
                       Row(
                         children: [
                           Text('외출 ', style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text('서면'),
+                          Text('덕천'),
                         ],
                       ),
                       Text('친구랑 술 한잔 하러 가겠습니다.',
@@ -168,7 +168,7 @@ class _OutingView extends ConsumerState<OutingView> {
                 ],
               ),
               const SizedBox(height: 10),
-              const Text('2024-08-08 12:00:01 ~ 2024-08-08 12:00:01',
+              const Text('2024-08-08 12:00:00 ~ 2024-08-08 21:00:00',
                   textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY)),
               const SizedBox(height: 20),
               Container(
@@ -178,7 +178,7 @@ class _OutingView extends ConsumerState<OutingView> {
             ],
           ),
             onTap: () {
-              Navigator.push(context, CupertinoPageRoute(builder: (context) => OutingDetailView(false)));
+              Navigator.push(context, CupertinoPageRoute(builder: (context) => OutingDetailView(false, '2024-08-08 12:00:00', '2024-08-08 21:00:00', '친구랑 술 한잔 하러 가겠습니다.', '부산광역시 북구 덕천동 231-1')));
             },
           )
         ],

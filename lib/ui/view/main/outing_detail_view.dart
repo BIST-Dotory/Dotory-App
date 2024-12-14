@@ -9,7 +9,8 @@ import '../../global/color_data.dart';
 
 class OutingDetailView extends ConsumerStatefulWidget {
   final bool isOuting;
-  const OutingDetailView(this.isOuting, {super.key});
+  final String startDate, endDate, content, place;
+  const OutingDetailView(this.isOuting, this.startDate, this.endDate, this.content, this.place, {super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _OutingDetailView();
@@ -31,15 +32,15 @@ class _OutingDetailView extends ConsumerState<OutingDetailView> {
                 widget.isOuting ? const Text('외박 신청', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24))
                     : const Text('외출 신청', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
                 const SizedBox(height: 20),
-                Text('출발', style: TextStyle(color: ColorData.GREY, fontSize: 16)),
+                Text('출발 - ${widget.startDate}', style: TextStyle(color: ColorData.GREY, fontSize: 16)),
                 const SizedBox(height: 8),
-                Text('도착', style: TextStyle(color: ColorData.GREY, fontSize: 16)),
+                Text('도착 - ${widget.endDate}', style: TextStyle(color: ColorData.GREY, fontSize: 16)),
                 const SizedBox(height: 28),
-                const Text('친구들과 술 한잔 하러 가겠습니다', style: TextStyle(fontSize: 16)),
+                Text('${widget.content}', style: TextStyle(fontSize: 16)),
                 const SizedBox(height: 48),
                 const Text('장소', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
                 const SizedBox(height: 12),
-                Text('부산광역시 북구 덕천동 231-1', style: TextStyle(color: ColorData.GREY, fontSize: 16)),
+                Text('${widget.place}', style: TextStyle(color: ColorData.GREY, fontSize: 16)),
                 const SizedBox(height: 28),
                 Container(
                   height: 300,

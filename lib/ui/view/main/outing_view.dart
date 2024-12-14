@@ -1,4 +1,5 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:dotory_app/ui/view/main/outing_detail_view.dart';
 import 'package:dotory_app/ui/view/main/outing_write_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -103,7 +104,7 @@ class _OutingView extends ConsumerState<OutingView> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Column(
+          GestureDetector(child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -125,15 +126,49 @@ class _OutingView extends ConsumerState<OutingView> {
                               color: ColorData.DARK_GREY)),
                     ],
                   ))),
-                  Container(width: 58, height: 58,
-                    decoration: BoxDecoration(
-                        color: ColorData.LIGHT_GREY
-                    ),
-                  )
                 ],
               ),
               const SizedBox(height: 10),
-              Text('2024-08-08 12:00:01 ~ 2024-08-08 12:00:01',
+              const Text('2024-08-08 12:00:01 ~ 2024-08-08 12:00:01',
+                  textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY)),
+              const SizedBox(height: 20),
+              Container(
+                height: 1,
+                color: ColorData.DARK_GREY,
+              ),
+              const SizedBox(height: 20)
+            ],
+          ),
+            onTap: () {
+              Navigator.push(context, CupertinoPageRoute(builder: (context) => OutingDetailView(true)));
+            },
+          ),
+          GestureDetector(child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                children: [
+                  Flexible(child: Padding(padding: EdgeInsets.only(right: 20) ,child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Text('외출 ', style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text('서면'),
+                        ],
+                      ),
+                      Text('친구랑 술 한잔 하러 가겠습니다.',
+                          textAlign: TextAlign.start,
+                          maxLines: 2,
+                          style: TextStyle(overflow: TextOverflow.ellipsis,
+                              color: ColorData.DARK_GREY)),
+                    ],
+                  ))),
+                ],
+              ),
+              const SizedBox(height: 10),
+              const Text('2024-08-08 12:00:01 ~ 2024-08-08 12:00:01',
                   textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY)),
               const SizedBox(height: 20),
               Container(
@@ -141,6 +176,10 @@ class _OutingView extends ConsumerState<OutingView> {
                 color: ColorData.DARK_GREY,
               )
             ],
+          ),
+            onTap: () {
+              Navigator.push(context, CupertinoPageRoute(builder: (context) => OutingDetailView(false)));
+            },
           )
         ],
       ),

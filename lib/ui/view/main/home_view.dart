@@ -3,6 +3,9 @@ import 'package:dotory_app/ui/global/device_size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
+
+import 'community_detail_view.dart';
 
 class HomeView extends ConsumerWidget {
   @override
@@ -90,7 +93,7 @@ class HomeView extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const Text('상점', textAlign: TextAlign.start),
+                    const Text('상점', textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.bold),),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -113,7 +116,7 @@ class HomeView extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const Text('벌점', textAlign: TextAlign.start),
+                    const Text('벌점', textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.bold),),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -139,7 +142,10 @@ class HomeView extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text('오늘의 외출/외박', textAlign: TextAlign.center)
+                  Text('오늘의 외출/외박', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
+                  const Spacer(),
+                  Align(alignment: Alignment.center, child:  Text('오늘의 외출/외박이 없습니다.', textAlign: TextAlign.center)),
+                  const Spacer(),
                 ],
               ),
             )
@@ -162,7 +168,7 @@ class HomeView extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: 16),
-          Container(
+          GestureDetector(child: Container(
             padding: const EdgeInsets.all(14),
             height: 120,
             decoration: BoxDecoration(
@@ -176,32 +182,33 @@ class HomeView extends ConsumerWidget {
                 Row(
                   children: [
                     Flexible(child: Padding(padding: EdgeInsets.only(right: 20) ,child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           children: [
                             Text('공지사항 ', style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text('제목'),
+                            Text('공지'),
                           ],
                         ),
-                        Text('텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트',
+                        Text('시험기간 동안 관리를 철저히 해주시길 바랍니다.',
                           maxLines: 2,
                           style: TextStyle(overflow: TextOverflow.ellipsis, color: ColorData.DARK_GREY)),
                       ],
                     ))),
-                    Container(width: 58, height: 58,
-                      decoration: BoxDecoration(
-                        color: ColorData.COLOR_WHITE
-                      ),
-                    )
                   ],
                 ),
                 const SizedBox(height: 10),
-                Text('2024-08-08 12:00:01', textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY))
+                Text('2024-12-12 12:00:01', textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY))
               ],
             ),
           ),
+            onTap: () {
+              Navigator.push(
+                  context, CupertinoPageRoute(builder: (context) => CommunityDetailView(false, '공지', '시험기간 동안 관리를 철저히 해주시길 바랍니다.', '12-12 12:00')));
+            },
+          ),
           const SizedBox(height: 16),
-          Container(
+          GestureDetector(child: Container(
               padding: const EdgeInsets.all(14),
             height: 120,
             decoration: BoxDecoration(
@@ -215,32 +222,33 @@ class HomeView extends ConsumerWidget {
                 Row(
                   children: [
                     Flexible(child: Padding(padding: EdgeInsets.only(right: 20) ,child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           children: [
-                            Text('건의사항 ', style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text('제목'),
+                            Text('자유게시판 ', style: TextStyle(fontWeight: FontWeight.bold)),
+                            Text('안녕'),
                           ],
                         ),
-                        Text('텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트',
+                        Text('다들 뭐하니??',
                             maxLines: 2,
                             style: TextStyle(overflow: TextOverflow.ellipsis, color: ColorData.DARK_GREY)),
                       ],
                     ))),
-                    Container(width: 58, height: 58,
-                      decoration: BoxDecoration(
-                          color: ColorData.COLOR_WHITE
-                      ),
-                    )
                   ],
                 ),
                 const SizedBox(height: 10),
-                Text('2024-08-08 12:00:01', textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY))
+                Text('2024-12-11 12:00:01', textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY))
               ],
             )
           ),
+            onTap: () {
+              Navigator.push(
+                  context, CupertinoPageRoute(builder: (context) => CommunityDetailView(false, '안녕', '다들 뭐하니??', '12-11 12:00')));
+            },
+          ),
           const SizedBox(height: 16),
-          Container(
+          GestureDetector(child: Container(
             padding: const EdgeInsets.all(14),
             height: 120,
             decoration: BoxDecoration(
@@ -252,16 +260,19 @@ class HomeView extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Flexible(child: Padding(padding: EdgeInsets.only(right: 20) ,child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           children: [
+                            SvgPicture.asset('assets/images/no_image.svg', width: 16, height: 16),
                             Text('더치페이 ', style: TextStyle(fontWeight: FontWeight.bold)),
-                            Text('제목'),
+                            Text('치킨 먹을사람 구합니다'),
                           ],
                         ),
-                        Text('텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트',
+                        Text('선착순 5명 치킨 같이 먹을사람~~',
                             maxLines: 2,
                             style: TextStyle(overflow: TextOverflow.ellipsis, color: ColorData.DARK_GREY)),
                       ],
@@ -274,9 +285,21 @@ class HomeView extends ConsumerWidget {
                   ],
                 ),
                 const SizedBox(height: 10),
-                Text('2024-08-08 12:00:01', textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY))
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text('모집인원 : 3 / 5명', textAlign: TextAlign.start, style: TextStyle(color: ColorData.DARK_GREY)),
+                    Text('2024-12-10 12:00:01', textAlign: TextAlign.end, style: TextStyle(color: ColorData.DARK_GREY)),
+                  ],
+                ),
               ],
             ),
+          ),
+            onTap: () {
+              Navigator.push(
+                  context, CupertinoPageRoute(builder: (context) => CommunityDetailView(true, '치킨 먹을사람 구합니다', '선착순 5명 치킨 같이 먹을사람~~', '12-10 12:00')));
+            },
           ),
           const SizedBox(height: 16)
         ],

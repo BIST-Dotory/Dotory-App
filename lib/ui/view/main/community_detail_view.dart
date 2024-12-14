@@ -3,12 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../global/color_data.dart';
 
 class CommunityDetailView extends ConsumerStatefulWidget {
   final bool isPay;
-  const CommunityDetailView(this.isPay, {super.key});
+  final String title, content, date;
+  const CommunityDetailView(this.isPay, this.title, this.content, this.date, {super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _CommunityDetailView();
@@ -38,7 +40,7 @@ class _CommunityDetailView extends ConsumerState<CommunityDetailView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('유저1', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
-                        Text('12/02 01:01', style: TextStyle(color: ColorData.GREY, fontSize: 12)),
+                        Text('${widget.date}', style: TextStyle(color: ColorData.GREY, fontSize: 12)),
                       ],
                     ),
                     widget.isPay ?
@@ -51,13 +53,13 @@ class _CommunityDetailView extends ConsumerState<CommunityDetailView> {
                   ],
                 )),
                 const SizedBox(height: 24),
-                Text('제목제목제목', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+                Text('${widget.title}', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
                 const SizedBox(height: 16),
                 ..._setPriceContent(),
-                const Text('내용내용내용내용내용내용내용내용내용내내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용'),
+                Text('${widget.content}'),
                 const SizedBox(height: 28),
+                ..._setPictureContent(),
                 Container(height: 1, color: ColorData.DARK_GREY),
-                const SizedBox(height: 28),
                 const Spacer(),
                 TextField(
                   decoration: InputDecoration(
@@ -82,6 +84,22 @@ class _CommunityDetailView extends ConsumerState<CommunityDetailView> {
     if(widget.isPay) {
       return [Text('35,000원 / 인당 7,000원', style: TextStyle(color: ColorData.GREY, fontSize: 16)),
         const SizedBox(height: 28)];
+    }
+    return [SizedBox()];
+  }
+
+  List<Widget> _setPictureContent() {
+    if(widget.isPay) {
+      return [
+        Container(
+            height: 170,
+            color: ColorData.LIGHT_GREY,
+            child: Center(
+              child: SvgPicture.asset('assets/images/no_image.svg'),
+            ),
+        ),
+        const SizedBox(height: 28),
+      ];
     }
     return [SizedBox()];
   }

@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../global/color_data.dart';
+
 class MajorItem extends ConsumerWidget {
   final StateProvider<String?> selectedMajorProvider;
   final String majorName;
@@ -18,17 +20,22 @@ class MajorItem extends ConsumerWidget {
           ref.read(selectedMajorProvider.notifier).state = majorName;
         }
         else {
-          ref.read(selectedMajorProvider!.notifier).state = majorName;
+          ref.read(selectedMajorProvider.notifier).state = majorName;
           Navigator.pop(context);
         }
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
         decoration: BoxDecoration(
-            border: Border.all(width: 1, color: Colors.black)
+            border: Border.all(width: 1, color: Colors.black),
+            color: ref.read(selectedMajorProvider.notifier).state == majorName ? ColorData.FOCUS_COLOR : Colors.white
         ),
         child: Center(
-          child: Text(majorName),
+          child: Text(majorName,
+            style: TextStyle(
+                color: ref.read(selectedMajorProvider.notifier).state == majorName ? Colors.white : Colors.black
+            ),
+          ),
         ),
       )
     );

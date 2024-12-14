@@ -2,6 +2,7 @@ import 'package:dotory_app/ui/view/main/community_view.dart';
 import 'package:dotory_app/ui/view/main/home_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../global/color_data.dart';
 import 'outing_view.dart';
@@ -16,8 +17,12 @@ class _MainView extends State<MainView> {
 
   final List<BottomNavigationBarItem> items = [
     const BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: "홈"),
-    const BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: "커뮤니티"),
-    const BottomNavigationBarItem(icon: Icon(CupertinoIcons.home), label: "외박/외출"),
+    BottomNavigationBarItem(icon: SvgPicture.asset('assets/images/icon_community.svg', width: 24, height: 24,),
+        activeIcon: SvgPicture.asset('assets/images/icon_community.svg', width: 24, height: 24, colorFilter: const ColorFilter.mode(ColorData.FOCUS_COLOR, BlendMode.srcIn)),
+        label: "커뮤니티"),
+    BottomNavigationBarItem(icon: SvgPicture.asset('assets/images/icon_outing.svg', width: 24, height: 24),
+        activeIcon: SvgPicture.asset('assets/images/icon_outing.svg', width: 24, height: 24, colorFilter: const ColorFilter.mode(ColorData.FOCUS_COLOR, BlendMode.srcIn)),
+        label: "외박/외출"),
   ];
 
   final screens = [
